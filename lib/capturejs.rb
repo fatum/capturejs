@@ -11,7 +11,7 @@ module Capturejs
     def capture(uri, output, options = {})
       options.reverse_merge!(DEFAULT_CAPTURE_OPTIONS)
       puts "capturejs --uri #{uri} --selector '#{options[:selector]}' --viewportsize #{options[:viewportsize]} --output #{output}"
-      sub = Subexec.run "capturejs --uri #{uri} --selector #{options[:selector]} --viewportsize #{options[:viewportsize]} --output #{output} --timeout 45"
+      sub = Subexec.run "capturejs --uri #{uri} --selector #{options[:selector]} --viewportsize #{options[:viewportsize]} --output #{output} --timeout 45000"
       if sub.exitstatus == 0
         {result: true}
       else
